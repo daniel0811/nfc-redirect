@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fallback 測試 - 立即取消</title>
+  <script>
+    window.onload = function () {
+      const fallback = setTimeout(function () {
+        alert("❌ 不應該看到這個！");
+      }, 3000);
+
+      // 馬上清除
+      clearTimeout(fallback);
+    };
+  </script>
+</head>
+<body>
+  <p>不會跳出 alert，代表 clearTimeout 有效。</p>
+</body>
+</html>
