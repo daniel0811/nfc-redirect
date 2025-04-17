@@ -13,6 +13,8 @@
         window.location = "https://apps.apple.com/us/app/instashare-2/id1491704676";
       }, 3500);
 
+      clearTimeout(fallback);
+
       // 如果 App 有開啟，頁面會變「非活躍」狀態，清除 fallback
       document.addEventListener("visibilitychange", function () {
         if (document.visibilityState === "hidden") {
