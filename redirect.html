@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    window.onload = function () {
+      // 嘗試開啟 App
+      window.location = "zowie://ble-connect?name=Nordic_Keyboard&mac=FE%3A46%3A1C%3A4B%3AB8%3A95";
+
+      // 設一個 fallback timeout，轉跳到 App Store
+      setTimeout(function () {
+        window.location = "https://apps.apple.com/us/app/instashare-2/id1491704676";
+      }, 1500);
+    };
+  </script>
+</head>
+<body>
+  <p>正在開啟 App，若未跳轉將自動前往 App Store...</p>
+</body>
+</html>
