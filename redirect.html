@@ -8,10 +8,17 @@
       // 嘗試開啟 App
       window.location = "zowie://ble-connect?name=Nordic_Keyboard&mac=FE%3A46%3A1C%3A4B%3AB8%3A95";
 
-      // 設一個 fallback timeout，轉跳到 App Store
-      setTimeout(function () {
+      // 準備 fallback
+      var fallback = setTimeout(function () {
         window.location = "https://apps.apple.com/us/app/instashare-2/id1491704676";
       }, 1500);
+
+      // 如果 App 有開啟，頁面會變「非活躍」狀態，清除 fallback
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") {
+          clearTimeout(fallback);
+        }
+      });
     };
   </script>
 </head>
