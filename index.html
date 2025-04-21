@@ -21,23 +21,19 @@
     window.onload = function () {
       const os = getMobileOS();
 
-      // 根據裝置選擇 fallback 目標
-      let fallbackUrl = "https://example.com"; // unknown 裝置時的 fallback
+      let fallbackUrl = "https://www.google.com";
       if (os === "iOS") {
         fallbackUrl = "https://apps.apple.com/us/app/instashare-2/id1491704676";
       } else if (os === "Android") {
         fallbackUrl = "https://play.google.com/store/apps/details?id=com.benq.qshare.client&hl=zh_TW";
       }
 
-      // 嘗試開啟 App
       window.location = "zowie://ble-connect?name=Nordic_Keyboard&mac=FE%3A46%3A1C%3A4B%3AB8%3A95";
 
-      // 設定 fallback 定時器
       const fallback = setTimeout(function () {
         window.location = fallbackUrl;
       }, 3000);
 
-      // 如果頁面被隱藏（App 開了），就取消 fallback
       document.addEventListener("visibilitychange", function () {
         if (document.visibilityState === "hidden") {
           clearTimeout(fallback);
